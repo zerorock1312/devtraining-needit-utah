@@ -7,7 +7,6 @@
         <choice_direction>down</choice_direction>
         <choice_field/>
         <choice_table/>
-        <conversational_label/>
         <create_roles/>
         <default_html_value/>
         <default_value/>
@@ -43,7 +42,6 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>group_member</name>
-        <not_available_conversation>false</not_available_conversation>
         <order>500</order>
         <post_insert_script/>
         <price_if_checked>0</price_if_checked>
@@ -81,7 +79,7 @@
         <sys_id>bc7c2262c3391a102d7fde1d05013156</sys_id>
         <sys_mod_count>5</sys_mod_count>
         <sys_name>Group Member</sys_name>
-        <sys_package/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>item_option_new_bc7c2262c3391a102d7fde1d05013156</sys_update_name>
@@ -89,7 +87,6 @@
         <sys_updated_on>2024-11-14 08:10:25</sys_updated_on>
         <table/>
         <tooltip/>
-        <topic_block/>
         <type>21</type>
         <ui_page/>
         <unique>false</unique>
