@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sys_user_group</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>AutoFill2</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, gForm, gSNC) {
+    // Get the selected value from the user_group field
+    var selectedGroupId = gForm.getValue('user_group');
+
+    // If no value is selected in user_group, clear group_manager
+    if (!selectedGroupId) {
+        gForm.clearValue('group_manager');
+        return;
+    }
+
+    // Perform a GlideAjax call to fetch the manager value
+    var ga = new GlideAjax('GetManager'); // Use the Script Include name
+    ga.addParam('sysparm_name', 'getManager'); // Specify the function to call
+    ga.addParam('sysparm_reference_id', selectedGroupId);
+    ga.getXML(function(response) {
+        var managerId = response.responseXML.documentElement.getAttribute("answer"); // The returned manager sys_id
+        if (managerId) {
+            gForm.setValue('group_manager', managerId); // Set group_manager with the fetched value
+        }
+    });
+})(current, gForm, gSNC);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-19 04:02:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d5ac6f0cc3ce9210a19fb61ed401314b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>AutoFill2</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_d5ac6f0cc3ce9210a19fb61ed401314b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-19 04:02:27</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=d5ac6f0cc3ce9210a19fb61ed401314b"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>d5ac6f0cc3ce9210a19fb61ed401314b</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-11-19 04:02:27</sys_created_on>
+        <sys_id>299d630cc3ce9210a19fb61ed40131a4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-11-19 04:02:27</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
